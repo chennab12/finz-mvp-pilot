@@ -1,0 +1,11 @@
+[theme]
+primaryColor = "#2a78d6"
+
+[browser]
+gatherUsageStats = false
+
+[server]
+maxUploadSize = 10
+
+[client]
+toolbarMode = "viewer"
