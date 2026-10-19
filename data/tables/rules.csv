@@ -1,0 +1,57 @@
+keyword,category
+payroll,Salary
+salary,Salary
+direct dep,Salary
+interest paid,Interest
+interest earned,Interest
+payment thank you,Credit card payment
+card autopay,Credit card payment
+credit card payment,Credit card payment
+crd pmt,Credit card payment
+transfer,Transfer
+xfer,Transfer
+car loan,Debt payments
+student loan,Debt payments
+loan payment,Debt payments
+rent,Housing
+mortgage,Housing
+hoa,Housing
+grocer,Groceries
+market,Groceries
+supermarket,Groceries
+cafe,Dining
+coffee,Dining
+restaurant,Dining
+pizza,Dining
+taqueria,Dining
+fuel,Transport
+gas station,Transport
+transit,Transport
+rideshare,Transport
+parking,Transport
+electric,Utilities
+water,Utilities
+internet,Utilities
+mobile,Utilities
+insurance,Insurance
+pharmacy,Healthcare
+clinic,Healthcare
+dental,Healthcare
+streaming,Subscriptions
+music plus,Subscriptions
+cloud storage,Subscriptions
+gym,Subscriptions
+department store,Shopping
+online store,Shopping
+hardware,Shopping
+cinema,Entertainment
+concert,Entertainment
+airline,Travel
+hotel,Travel
+tuition,Education
+bookstore,Education
+charity,Gifts & donations
+fee,Fees
+auto repair,Transport
+tax ref,Other income
+babysitter,Education

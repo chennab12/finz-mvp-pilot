@@ -1,0 +1,9 @@
+name,type,balance,emergency_fund
+Everyday checking,Checking,6850.0,False
+High-yield savings,Savings,14200.0,True
+Workplace 401(k),Retirement,86500.0,False
+Roth IRA,Retirement,31200.0,False
+Brokerage index funds,Investment,23400.0,False
+Car (estimated value),Vehicle,14000.0,False
+Health savings (HSA),Investment,4300.0,False
+Cash at home,Other asset,300.0,True

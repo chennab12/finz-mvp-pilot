@@ -1,0 +1,8 @@
+name,amount,billing,renewal_date,decision,cancelled
+Streaming video,15.99,Monthly,2026-10-23,Keep,False
+Music plus,10.99,Monthly,2026-10-27,Review,False
+Cloud storage 2TB,2.99,Monthly,2026-10-29,Keep,False
+Gym membership,39.0,Monthly,2026-11-02,Review,False
+News app,99.0,Yearly,2026-10-31,Cancel,False
+Meal kit,69.99,Weekly,2026-10-21,Cancel,True
+Password manager,36.0,Quarterly,2026-12-03,Keep,False

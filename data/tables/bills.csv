@@ -1,0 +1,12 @@
+name,amount,frequency,next_due,category,autopay,active
+Rent,3100.0,Monthly,2026-11-01,Housing,False,True
+Preschool tuition,1350.0,Monthly,2026-11-01,Education,True,True
+Electricity (estimate),115.0,Monthly,2026-10-24,Utilities,True,True
+Internet,70.0,Monthly,2026-10-28,Utilities,True,True
+Mobile plan,85.0,Monthly,2026-10-30,Utilities,True,True
+Auto insurance,128.4,Monthly,2026-10-17,Insurance,False,True
+Renters insurance,180.0,Yearly,2026-11-28,Insurance,False,True
+Car registration,212.0,Yearly,2027-01-02,Transport,False,True
+Babysitter (Saturdays),90.0,Weekly,2026-10-22,Education,False,True
+Water & sewer,210.0,Quarterly,2026-10-13,Utilities,False,True
+Old gym (paused),49.0,Monthly,2026-10-25,Subscriptions,True,False

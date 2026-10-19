@@ -36,7 +36,9 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Open http://localhost:8501. The app starts with the synthetic sample household. Use **🧹 Start with empty data** in the sidebar to begin with your own numbers, or import a CSV on **Income & Expenses** ([data/sample_transactions.csv](data/sample_transactions.csv) shows the expected shape: `date, description, amount, category, account`, where spending is negative).
+Open http://localhost:8501. The app starts with the synthetic sample household. Use **🧹 Start with empty data** in the sidebar to begin with your own numbers, or import a CSV on **Income & Expenses**.
+
+To try every feature at once, restore [data/finlife-full-sample-backup.json](data/finlife-full-sample-backup.json) from the sidebar. [data/README.md](data/README.md) lists every test file (a messy bank CSV, a CSV per table) and what each one exercises.
 
 ## Where your data is stored
 
@@ -57,12 +59,13 @@ pip install pytest
 python -m pytest -q
 ```
 
-95 tests cover:
+111 tests cover:
 
 - loan, refinance, debt payoff (including the duplicate-name bug found in the audit), savings, growth with fees and inflation, retirement and tax calculations, with known reference values and bracket edges;
 - input validation (negative, NaN, infinite and out-of-range values are rejected with a clear message);
 - the data layer: CSV import mapping, rules, duplicate and transfer flags, bills rolling forward, backup and restore, local file persistence, CSV round trips and the sample data;
 - the action rules and dashboard metrics;
+- the files in data/: they load, the bank CSV imports, and the full backup fires every action rule;
 - every page and every calculator rendered with Streamlit's AppTest, plus quick-add, Done and Snooze, empty and sample data, currency change and save-and-reload.
 
 GitHub Actions runs the suite on every push ([.github/workflows/tests.yml](.github/workflows/tests.yml)).
@@ -109,7 +112,8 @@ finlife/insights.py    plain-English spending insights
 finlife/ui/            shared formatting, editors, explanations and Plotly charts
 finlife/views/         one module per page
 tests/                 pytest unit tests and AppTest page tests
-data/                  example CSV for import (synthetic)
+data/                  synthetic test files: full backup, bank CSV, one CSV per table
+scripts/               make_sample_files.py regenerates data/ for today's date
 docs/                  the consolidation audit
 ```
 

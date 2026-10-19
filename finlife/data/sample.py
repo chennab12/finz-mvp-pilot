@@ -8,6 +8,8 @@ has something to show.
 
 from __future__ import annotations
 
+import csv
+import io
 import random
 from datetime import date, timedelta
 
@@ -27,7 +29,7 @@ def _day(year: int, month: int, day: int) -> date:
     return date(year, month, min(day, last))
 
 
-def sample_transactions(today: date) -> pd.DataFrame:
+def sample_transactions(today: date, second_pay: float = 2150.00) -> pd.DataFrame:
     rng = random.Random(SEED)
     rows: list[dict] = []
 
@@ -53,7 +55,7 @@ def sample_transactions(today: date) -> pd.DataFrame:
         for day in (1, 15):
             add(_day(y, mo, day), "PAYROLL NORTHWIND LABS DIRECT DEP", 3250.00, "Checking")
         for day in (5, 20):
-            add(_day(y, mo, day), "PAYROLL CONTOSO HEALTH DIRECT DEP", 2150.00, "Checking")
+            add(_day(y, mo, day), "PAYROLL CONTOSO HEALTH DIRECT DEP", second_pay, "Checking")
         add(_day(y, mo, 28), "INTEREST EARNED", 38.0 + m * 1.7, "Savings")
 
         # Fixed bills from checking.
@@ -116,9 +118,9 @@ def sample_transactions(today: date) -> pd.DataFrame:
     return tx.apply_rules(frame.sort_values("date").reset_index(drop=True), rules)
 
 
-def sample_data(today: date) -> dict:
+def sample_data(today: date, second_pay: float = 2150.00) -> dict:
     data = storage.empty_data()
-    data["transactions"] = sample_transactions(today)
+    data["transactions"] = sample_transactions(today, second_pay)
 
     def d(days: int) -> str:
         return (today + timedelta(days=days)).isoformat()
@@ -218,3 +220,129 @@ def sample_data(today: date) -> dict:
     data["net_worth_log"] = networth.record_snapshot(log, data["accounts"], data["debts"], today, "Sample")
     data["settings"].update({"currency": "USD", "starting_balance": 6850.0, "is_sample": True})
     return data
+
+
+def comprehensive_data(today: date) -> dict:
+    """A stretched version of the sample household that triggers every rule in the app.
+
+    Used for the downloadable test files in data/. Compared with `sample_data` it has one earner on
+    reduced hours (savings rate under 10%), an expensive last month (a deficit), uncategorized and
+    excluded rows, custom rules, weekly, quarterly and inactive bills, a goal past its deadline, a
+    cancelled subscription, overdue tasks and documents, a snoozed action and a stale net-worth log.
+    """
+    data = sample_data(today, second_pay=650.00)
+
+    def d(days: int) -> str:
+        return (today + timedelta(days=days)).isoformat()
+
+    first = date(today.year, today.month, 1)
+    last_full = add_months(first, -1)
+    extra = [
+        (_day(last_full.year, last_full.month, 9), "AUTO REPAIR SHOP - TRANSMISSION", -2480.00, "Checking", ""),
+        (_day(last_full.year, last_full.month, 17), "URGENT CARE CLINIC", -640.00, "Checking", ""),
+        (_day(last_full.year, last_full.month, 24), "IRS TREAS 310 TAX REF", 412.00, "Checking", ""),
+        (_day(last_full.year, last_full.month, 26), "BABYSITTER VENMO", -180.00, "Checking", ""),
+        (_day(last_full.year, last_full.month, 27), "MONTHLY SERVICE FEE", -12.00, "Checking", ""),
+        (_day(last_full.year, last_full.month, 29), "VENMO CASHOUT", 85.00, "Checking",
+         "Friend paid back their share of dinner; not income"),
+        (first + timedelta(days=2), "SQ *FARMSTAND SUNNYVALE", -32.40, "Credit Card", ""),
+        (first + timedelta(days=5), "POS PURCHASE 4821", -57.10, "Checking", ""),
+        (first + timedelta(days=6), "ZELLE TO J LEE", -150.00, "Checking", "Split of a group gift"),
+        (first + timedelta(days=9), "BABYSITTER VENMO", -180.00, "Checking", ""),
+    ]
+    rows = pd.DataFrame([{"id": tx.new_id(), "date": when, "description": desc, "amount": amount,
+                          "account": account, "category": "", "exclude": False, "source": "", "notes": note}
+                         for when, desc, amount, account, note in extra if when <= today])
+    data["rules"] = data["rules"] if data.get("rules") else []
+    data["rules"] += [{"keyword": "auto repair", "category": "Transport"},
+                      {"keyword": "tax ref", "category": "Other income"},
+                      {"keyword": "babysitter", "category": "Education"}]
+    frame = tx.normalize(pd.concat([data["transactions"], tx.normalize(rows)], ignore_index=True))
+    frame = tx.apply_rules(frame.sort_values("date").reset_index(drop=True), data["rules"])
+    cashout = frame["description"] == "VENMO CASHOUT"
+    frame.loc[cashout, "exclude"] = True
+    frame.loc[cashout, "category"] = "Other income"
+    data["transactions"] = frame
+
+    data["bills"] += [
+        {"name": "Babysitter (Saturdays)", "amount": 90.0, "frequency": "Weekly", "next_due": d(3),
+         "category": "Education", "autopay": False, "active": True},
+        {"name": "Water & sewer", "amount": 210.0, "frequency": "Quarterly", "next_due": d(-6),
+         "category": "Utilities", "autopay": False, "active": True},
+        {"name": "Old gym (paused)", "amount": 49.0, "frequency": "Monthly", "next_due": d(6),
+         "category": "Subscriptions", "autopay": True, "active": False},
+    ]
+    data["accounts"] += [
+        {"name": "Health savings (HSA)", "type": "Investment", "balance": 4300.0, "emergency_fund": False},
+        {"name": "Cash at home", "type": "Other asset", "balance": 300.0, "emergency_fund": True},
+    ]
+    data["debts"] += [
+        {"name": "Store card", "type": "Credit card", "balance": 1200.0, "apr": 19.99, "min_payment": 40.0,
+         "next_due": d(6)},
+        {"name": "Medical payment plan", "type": "Personal loan", "balance": 640.0, "apr": 0.0, "min_payment": 80.0,
+         "next_due": d(27)},
+    ]
+    data["goals"] += [
+        {"name": "Anniversary weekend", "target": 1500.0, "saved": 900.0, "monthly_contribution": 100.0,
+         "deadline": d(-12)},
+    ]
+    for policy in data["insurance"]:
+        if policy["policy"] == "Auto":
+            policy["renewal_date"] = d(6)
+    data["insurance"].append({"policy": "Umbrella liability", "provider": "Sample Mutual", "premium": 285.0,
+                              "term_months": 12.0, "renewal_date": d(-4), "notes": "Renewal notice not paid yet"})
+    data["subscriptions"].append({"name": "Meal kit", "amount": 69.99, "billing": "Weekly",
+                                  "renewal_date": d(2), "decision": "Cancel", "cancelled": True})
+    data["subscriptions"].append({"name": "Password manager", "amount": 36.0, "billing": "Quarterly",
+                                  "renewal_date": d(45), "decision": "Keep", "cancelled": False})
+    data["documents"] += [
+        {"document": "Upload childcare receipts for FSA", "category": "Tax", "due_date": d(-5), "done": False,
+         "notes": "Dependent care FSA claim"},
+        {"document": "Renew passport (child)", "category": "Identity", "due_date": d(5), "done": False, "notes": ""},
+    ]
+    data["tasks"] += [
+        {"task": "Shred old statements", "priority": "Low", "due_date": d(-8), "done": False, "notes": ""},
+        {"task": "Set up 529 account", "priority": "Medium", "due_date": None, "done": False,
+         "notes": "No due date; stays on the list"},
+        {"task": "Freeze credit at all three bureaus", "priority": "High", "due_date": d(-20), "done": True,
+         "notes": "Done; kept for the record"},
+    ]
+    data["net_worth_log"] = [e for e in data["net_worth_log"]
+                             if (today - date.fromisoformat(e["date"])).days > 35]
+    data["settings"].update({"is_sample": True, "starting_balance": 2400.0,
+                             "dismissed": {"goal:Home down payment": d(14)}})
+    return data
+
+
+def bank_export_csv(today: date) -> bytes:
+    """A messy bank CSV for practising the import wizard (separate Debit/Credit columns, $ signs,
+    US dates, a pending row with no date, a blank amount, a duplicate, a transfer and unknown merchants)."""
+    def us(days_ago: int) -> str:
+        return (today - timedelta(days=days_ago)).strftime("%m/%d/%Y")
+
+    rows = [
+        ("Posted Date", "Payee", "Memo", "Debit", "Credit", "Balance"),
+        (us(18), "PAYROLL NORTHWIND LABS DIRECT DEP", "Salary", "", "$3,250.00", "$5,912.40"),
+        (us(17), "VALLEY GROCER #12", "Debit card", "$142.18", "", "$5,770.22"),
+        (us(16), "TRANSFER TO SAVINGS", "Online transfer", "$500.00", "", "$5,270.22"),
+        (us(15), "SUNNY TAQUERIA", "Debit card", "$27.60", "", "$5,242.62"),
+        (us(14), "SHELL FUEL 0042", "Debit card", "$58.31", "", "$5,184.31"),
+        (us(13), "FARMERS MKT STAND 7", "Debit card", "$24.00", "", "$5,160.31"),
+        (us(12), "ZELLE TO M PATEL", "Shared dinner", "$46.00", "", "$5,114.31"),
+        (us(11), "HARDWARE DEPOT", "Debit card", "$89.95", "", "$5,024.36"),
+        (us(10), "HARDWARE DEPOT REFUND", "Return", "", "$32.99", "$5,057.35"),
+        (us(9), "CITY WATER DEPT", "Bill pay", "$67.45", "", "$4,989.90"),
+        (us(8), "BLUE BOTTLE CAFE", "Debit card", "$6.75", "", "$4,983.15"),
+        (us(8), "BLUE BOTTLE CAFE", "Debit card", "$6.75", "", "$4,976.40"),
+        (us(7), "KIDS SWIM SCHOOL", "Debit card", "$120.00", "", "$4,856.40"),
+        (us(6), "ATM WITHDRAWAL 1123", "Cash", "$100.00", "", "$4,756.40"),
+        (us(5), "MONTHLY SERVICE FEE", "Account fee", "$12.00", "", "$4,744.40"),
+        (us(4), "PAYROLL NORTHWIND LABS DIRECT DEP", "Salary", "", "$3,250.00", "$7,994.40"),
+        (us(3), "INTEREST PAID", "Monthly interest", "", "$1.84", "$7,996.24"),
+        (us(2), "CORNER PHARMACY", "Debit card", "$18.49", "", "$7,977.75"),
+        ("Pending", "ONLINE STORE ORDER", "Not posted yet", "$54.10", "", ""),
+        (us(1), "CHECK 1043", "Paper check, amount missing", "", "", ""),
+    ]
+    out = io.StringIO()
+    csv.writer(out, lineterminator="\n").writerows(rows)
+    return out.getvalue().encode("utf-8")

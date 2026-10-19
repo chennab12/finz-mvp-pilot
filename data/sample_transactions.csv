@@ -1,76 +1,302 @@
-date,description,amount,category,account
-2026-09-01,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Salary,Checking
-2026-09-01,GYM MEMBERSHIP,-39.0,Subscriptions,Credit Card
-2026-09-01,LITTLE OAKS PRESCHOOL TUITION,-1350.0,Education,Checking
-2026-09-01,RENT PAYMENT - OAK APTS,-3100.0,Housing,Checking
-2026-09-02,TRANSFER FROM CHECKING,800.0,Transfer,Savings
-2026-09-02,TRANSFER TO SAVINGS,-800.0,Transfer,Checking
-2026-09-03,BLUE BOTTLE CAFE,-73.78,Dining,Credit Card
-2026-09-03,SAMPLE AUTO INSURANCE,-128.4,Insurance,Checking
-2026-09-03,VALLEY GROCER,-124.72,Groceries,Credit Card
-2026-09-04,STREAMING VIDEO CO,-15.99,Subscriptions,Credit Card
-2026-09-04,COFFEE BAR,-43.84,Dining,Credit Card
-2026-09-05,PAYROLL CONTOSO HEALTH DIRECT DEP,2150.0,Salary,Checking
-2026-09-06,CAR LOAN AUTOPAY SAMPLE CU,-365.0,Debt payments,Checking
-2026-09-06,CORNER PHARMACY,-29.28,Healthcare,Credit Card
-2026-09-08,PG ELECTRIC UTILITY,-122.9,Utilities,Checking
-2026-09-09,COFFEE BAR,-11.22,Dining,Credit Card
-2026-09-09,MUSIC PLUS,-10.99,Subscriptions,Credit Card
-2026-09-10,CLOUD STORAGE 2TB,-2.99,Subscriptions,Credit Card
-2026-09-10,COFFEE BAR,-42.59,Dining,Credit Card
-2026-09-10,BLUE BOTTLE CAFE,-64.66,Dining,Credit Card
-2026-09-10,VALLEY GROCER,-169.0,Groceries,Credit Card
-2026-09-12,THAI RESTAURANT,-63.67,Dining,Credit Card
-2026-09-12,FIBER INTERNET CO,-70.0,Utilities,Checking
-2026-09-13,STUDENT LOAN SERVICER,-210.0,Debt payments,Checking
-2026-09-14,MOBILE WIRELESS PLAN,-85.0,Utilities,Checking
-2026-09-15,RIDESHARE TRIP,-21.32,Transport,Credit Card
-2026-09-15,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Salary,Checking
-2026-09-17,FRESH MARKET #142,-116.37,Groceries,Credit Card
-2026-09-17,THAI RESTAURANT,-69.89,Dining,Credit Card
-2026-09-17,SHELL FUEL,-51.55,Transport,Credit Card
-2026-09-19,SHELL FUEL,-46.49,Transport,Credit Card
-2026-09-20,SHELL FUEL,-44.56,Transport,Credit Card
-2026-09-20,THAI RESTAURANT,-33.81,Dining,Credit Card
-2026-09-20,PAYROLL CONTOSO HEALTH DIRECT DEP,2150.0,Salary,Checking
-2026-09-22,CREDIT CARD PAYMENT,-1529.58,Credit card payment,Checking
-2026-09-22,PAYMENT THANK YOU,1529.58,Credit card payment,Credit Card
-2026-09-22,CHARITY DONATION,-25.0,Gifts & donations,Credit Card
-2026-09-24,VALLEY GROCER,-133.84,Groceries,Credit Card
-2026-09-26,HARDWARE DEPOT,-79.6,Shopping,Credit Card
-2026-09-27,THAI RESTAURANT,-71.24,Dining,Credit Card
-2026-09-27,PIZZA PLACE,-12.73,Dining,Credit Card
-2026-09-27,DEPARTMENT STORE,-137.35,Shopping,Credit Card
-2026-09-28,CINEMA 12,-35.9,Entertainment,Credit Card
-2026-09-28,INTEREST EARNED,46.5,Interest,Savings
-2026-10-01,GYM MEMBERSHIP,-39.0,Subscriptions,Credit Card
-2026-10-01,LITTLE OAKS PRESCHOOL TUITION,-1350.0,Education,Checking
-2026-10-01,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Salary,Checking
-2026-10-01,RENT PAYMENT - OAK APTS,-3100.0,Housing,Checking
-2026-10-02,HARDWARE DEPOT,-99.83,Shopping,Credit Card
-2026-10-02,TRANSFER TO SAVINGS,-800.0,Transfer,Checking
-2026-10-02,TRANSFER FROM CHECKING,800.0,Transfer,Savings
-2026-10-03,SAMPLE AUTO INSURANCE,-128.4,Insurance,Checking
-2026-10-03,SUPERMARKET 88,-133.47,Groceries,Credit Card
-2026-10-04,STREAMING VIDEO CO,-15.99,Subscriptions,Credit Card
-2026-10-05,PAYROLL CONTOSO HEALTH DIRECT DEP,2150.0,Salary,Checking
-2026-10-06,CAR LOAN AUTOPAY SAMPLE CU,-365.0,Debt payments,Checking
-2026-10-06,SHELL FUEL,-59.85,Transport,Credit Card
-2026-10-08,DEPARTMENT STORE,-82.65,Shopping,Credit Card
-2026-10-08,PG ELECTRIC UTILITY,-131.73,Utilities,Checking
-2026-10-09,MUSIC PLUS,-10.99,Subscriptions,Credit Card
-2026-10-10,VALLEY GROCER,-177.12,Groceries,Credit Card
-2026-10-10,CLOUD STORAGE 2TB,-2.99,Subscriptions,Credit Card
-2026-10-10,CORNER PHARMACY,-34.84,Healthcare,Credit Card
-2026-10-12,SUNNY TAQUERIA,-50.47,Dining,Credit Card
-2026-10-12,FIBER INTERNET CO,-70.0,Utilities,Checking
-2026-10-13,STUDENT LOAN SERVICER,-210.0,Debt payments,Checking
-2026-10-14,MOBILE WIRELESS PLAN,-85.0,Utilities,Checking
-2026-10-15,SHELL FUEL,-48.92,Transport,Credit Card
-2026-10-15,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Salary,Checking
-2026-10-17,FRESH MARKET #142,-156.39,Groceries,Credit Card
-2026-10-18,CITY WATER DEPT,-61.24,Utilities,Checking
-2026-10-18,CHARITY DONATION,-25.0,Gifts & donations,Credit Card
-2026-10-19,BLUE BOTTLE CAFE,-40.29,Dining,Credit Card
-2026-10-19,PIZZA PLACE,-12.11,Dining,Credit Card
-2026-10-19,HARDWARE DEPOT,-56.65,Shopping,Credit Card
+id,date,description,amount,account,category,exclude,source,notes
+c2b922f1eb,2026-04-01,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Checking,Salary,False,rule,
+791937e4cf,2026-04-01,GYM MEMBERSHIP,-39.0,Credit Card,Subscriptions,False,rule,
+49d1481adb,2026-04-01,RENT PAYMENT - OAK APTS,-3100.0,Checking,Housing,False,rule,
+3ca17513e6,2026-04-01,LITTLE OAKS PRESCHOOL TUITION,-1350.0,Checking,Education,False,rule,
+8572bbcb00,2026-04-02,TRANSFER FROM CHECKING,800.0,Savings,Transfer,False,rule,
+c4c12bce6e,2026-04-02,TRANSFER TO SAVINGS,-800.0,Checking,Transfer,False,rule,
+4f90996d09,2026-04-03,SUPERMARKET 88,-112.67,Credit Card,Groceries,False,rule,
+3f8f52bfa1,2026-04-03,SAMPLE AUTO INSURANCE,-128.4,Checking,Insurance,False,rule,
+5127fd40e7,2026-04-03,CHARITY DONATION,-25.0,Credit Card,Gifts & donations,False,rule,
+3f19445059,2026-04-04,SHELL FUEL,-58.95,Credit Card,Transport,False,rule,
+173d64dc3e,2026-04-04,STREAMING VIDEO CO,-15.99,Credit Card,Subscriptions,False,rule,
+ba13c277d2,2026-04-04,CORNER PHARMACY,-14.84,Credit Card,Healthcare,False,rule,
+990f96309a,2026-04-05,RIDESHARE TRIP,-24.91,Credit Card,Transport,False,rule,
+c16c894b2e,2026-04-05,PAYROLL CONTOSO HEALTH DIRECT DEP,650.0,Checking,Salary,False,rule,
+e4bf27ab52,2026-04-06,CAR LOAN AUTOPAY SAMPLE CU,-365.0,Checking,Debt payments,False,rule,
+603afca04e,2026-04-08,PG ELECTRIC UTILITY,-137.67,Checking,Utilities,False,rule,
+6a895f56d0,2026-04-09,SUNNY TAQUERIA,-34.18,Credit Card,Dining,False,rule,
+3655ef2e46,2026-04-09,THAI RESTAURANT,-77.77,Credit Card,Dining,False,rule,
+49d9125678,2026-04-09,MUSIC PLUS,-10.99,Credit Card,Subscriptions,False,rule,
+ee2e0f9510,2026-04-10,CLOUD STORAGE 2TB,-2.99,Credit Card,Subscriptions,False,rule,
+e24fe71c1a,2026-04-10,FRESH MARKET #142,-166.05,Credit Card,Groceries,False,rule,
+6b03b3c556,2026-04-11,SUNNY TAQUERIA,-69.67,Credit Card,Dining,False,rule,
+054dd8b983,2026-04-11,HARDWARE DEPOT,-55.93,Credit Card,Shopping,False,rule,
+1d4c45fe9d,2026-04-12,FIBER INTERNET CO,-70.0,Checking,Utilities,False,rule,
+2994c657a1,2026-04-13,STUDENT LOAN SERVICER,-210.0,Checking,Debt payments,False,rule,
+a8752fdf27,2026-04-14,MOBILE WIRELESS PLAN,-85.0,Checking,Utilities,False,rule,
+b12f0c7155,2026-04-14,SHELL FUEL,-53.97,Credit Card,Transport,False,rule,
+076faabdff,2026-04-15,PIZZA PLACE,-18.44,Credit Card,Dining,False,rule,
+ef98522216,2026-04-15,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Checking,Salary,False,rule,
+7c75e97e1f,2026-04-15,DEPARTMENT STORE,-31.11,Credit Card,Shopping,False,rule,
+6de84ad349,2026-04-17,SUPERMARKET 88,-186.43,Credit Card,Groceries,False,rule,
+4bd537a276,2026-04-18,CITY WATER DEPT,-63.52,Checking,Utilities,False,rule,
+1de69c4ca2,2026-04-20,PAYROLL CONTOSO HEALTH DIRECT DEP,650.0,Checking,Salary,False,rule,
+a2dc1912d4,2026-04-21,BLUE BOTTLE CAFE,-64.67,Credit Card,Dining,False,rule,
+9ff4022900,2026-04-23,BLUE BOTTLE CAFE,-17.21,Credit Card,Dining,False,rule,
+9680232e8f,2026-04-23,SHELL FUEL,-48.83,Credit Card,Transport,False,rule,
+c4de1f278e,2026-04-24,FRESH MARKET #142,-192.77,Credit Card,Groceries,False,rule,
+8b8a9f511e,2026-04-27,COFFEE BAR,-51.85,Credit Card,Dining,False,rule,
+d5717615f4,2026-04-28,INTEREST EARNED,38.0,Savings,Interest,False,rule,
+b140ba623c,2026-05-01,LITTLE OAKS PRESCHOOL TUITION,-1350.0,Checking,Education,False,rule,
+b0f94db2b6,2026-05-01,RENT PAYMENT - OAK APTS,-3100.0,Checking,Housing,False,rule,
+d3f07fcb98,2026-05-01,HARDWARE DEPOT,-96.51,Credit Card,Shopping,False,rule,
+c8b3e10b56,2026-05-01,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Checking,Salary,False,rule,
+f312e4b033,2026-05-01,COFFEE BAR,-59.75,Credit Card,Dining,False,rule,
+2f6869785a,2026-05-01,GYM MEMBERSHIP,-39.0,Credit Card,Subscriptions,False,rule,
+51071026d5,2026-05-01,SHELL FUEL,-44.59,Credit Card,Transport,False,rule,
+254c87c3c7,2026-05-02,TRANSFER FROM CHECKING,800.0,Savings,Transfer,False,rule,
+6bc3d8e503,2026-05-02,TRANSFER TO SAVINGS,-800.0,Checking,Transfer,False,rule,
+2f2a6dd46d,2026-05-03,FRESH MARKET #142,-115.63,Credit Card,Groceries,False,rule,
+f2ff6f1f1b,2026-05-03,SAMPLE AUTO INSURANCE,-128.4,Checking,Insurance,False,rule,
+9f4cd89962,2026-05-04,STREAMING VIDEO CO,-15.99,Credit Card,Subscriptions,False,rule,
+1edf863c8b,2026-05-05,PAYROLL CONTOSO HEALTH DIRECT DEP,650.0,Checking,Salary,False,rule,
+cec7440927,2026-05-06,CAR LOAN AUTOPAY SAMPLE CU,-365.0,Checking,Debt payments,False,rule,
+df0db7d3a6,2026-05-08,PG ELECTRIC UTILITY,-131.41,Checking,Utilities,False,rule,
+867f206fa1,2026-05-09,CINEMA 12,-24.86,Credit Card,Entertainment,False,rule,
+5ab357cf86,2026-05-09,SHELL FUEL,-56.04,Credit Card,Transport,False,rule,
+43a1cf3d1b,2026-05-09,MUSIC PLUS,-10.99,Credit Card,Subscriptions,False,rule,
+0011ed5a30,2026-05-10,VALLEY GROCER,-183.01,Credit Card,Groceries,False,rule,
+e9965d2203,2026-05-10,CLOUD STORAGE 2TB,-2.99,Credit Card,Subscriptions,False,rule,
+ea4ce7a3d0,2026-05-10,HARDWARE DEPOT,-124.98,Credit Card,Shopping,False,rule,
+6b95911741,2026-05-10,BLUE BOTTLE CAFE,-65.27,Credit Card,Dining,False,rule,
+8646497ca8,2026-05-12,FIBER INTERNET CO,-70.0,Checking,Utilities,False,rule,
+025cf71b47,2026-05-12,COFFEE BAR,-10.04,Credit Card,Dining,False,rule,
+4c9f741508,2026-05-13,STUDENT LOAN SERVICER,-210.0,Checking,Debt payments,False,rule,
+9348536fdc,2026-05-14,MOBILE WIRELESS PLAN,-85.0,Checking,Utilities,False,rule,
+e298359046,2026-05-14,DEPARTMENT STORE,-125.83,Credit Card,Shopping,False,rule,
+cf41aea077,2026-05-15,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Checking,Salary,False,rule,
+0e0a56b4c4,2026-05-15,PIZZA PLACE,-25.71,Credit Card,Dining,False,rule,
+0b4f8241bb,2026-05-16,COFFEE BAR,-72.67,Credit Card,Dining,False,rule,
+aa58d5c981,2026-05-17,SUNNY TAQUERIA,-15.66,Credit Card,Dining,False,rule,
+d90db44e32,2026-05-17,FRESH MARKET #142,-145.55,Credit Card,Groceries,False,rule,
+f667062aa6,2026-05-20,PAYROLL CONTOSO HEALTH DIRECT DEP,650.0,Checking,Salary,False,rule,
+0aae702dc4,2026-05-20,SHELL FUEL,-47.05,Credit Card,Transport,False,rule,
+2c340c45f9,2026-05-22,RIDESHARE TRIP,-17.62,Credit Card,Transport,False,rule,
+88cbd926de,2026-05-22,PAYMENT THANK YOU,1374.2,Credit Card,Credit card payment,False,rule,
+edc4d1dc57,2026-05-22,CREDIT CARD PAYMENT,-1374.2,Checking,Credit card payment,False,rule,
+4114f3553e,2026-05-22,SUNNY TAQUERIA,-13.53,Credit Card,Dining,False,rule,
+4393c08e48,2026-05-23,BLUE BOTTLE CAFE,-37.82,Credit Card,Dining,False,rule,
+eac36bef63,2026-05-24,SUPERMARKET 88,-149.01,Credit Card,Groceries,False,rule,
+d75f00b2d9,2026-05-27,HARDWARE DEPOT,-117.65,Credit Card,Shopping,False,rule,
+8ac2e67a44,2026-05-28,INTEREST EARNED,39.7,Savings,Interest,False,rule,
+8e78cb07e3,2026-05-28,CHARITY DONATION,-25.0,Credit Card,Gifts & donations,False,rule,
+494e26fe0a,2026-06-01,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Checking,Salary,False,rule,
+f2e9ffa9af,2026-06-01,RENT PAYMENT - OAK APTS,-3100.0,Checking,Housing,False,rule,
+f9058ba928,2026-06-01,LITTLE OAKS PRESCHOOL TUITION,-1350.0,Checking,Education,False,rule,
+214fdbf613,2026-06-01,GYM MEMBERSHIP,-39.0,Credit Card,Subscriptions,False,rule,
+ac09e33748,2026-06-02,SHELL FUEL,-45.54,Credit Card,Transport,False,rule,
+75c3c954cf,2026-06-02,TRANSFER FROM CHECKING,800.0,Savings,Transfer,False,rule,
+a7c6972252,2026-06-02,TRANSFER TO SAVINGS,-800.0,Checking,Transfer,False,rule,
+362f55e8a4,2026-06-03,SAMPLE AUTO INSURANCE,-128.4,Checking,Insurance,False,rule,
+abf12a6330,2026-06-03,COFFEE BAR,-29.45,Credit Card,Dining,False,rule,
+2e9e541239,2026-06-03,FRESH MARKET #142,-122.84,Credit Card,Groceries,False,rule,
+9978a4fe3a,2026-06-04,STREAMING VIDEO CO,-15.99,Credit Card,Subscriptions,False,rule,
+1b3a0e0189,2026-06-05,PAYROLL CONTOSO HEALTH DIRECT DEP,650.0,Checking,Salary,False,rule,
+744eb21e0c,2026-06-06,CHARITY DONATION,-25.0,Credit Card,Gifts & donations,False,rule,
+5f80ea8dd9,2026-06-06,CAR LOAN AUTOPAY SAMPLE CU,-365.0,Checking,Debt payments,False,rule,
+6560fccead,2026-06-07,SHELL FUEL,-44.98,Credit Card,Transport,False,rule,
+c346b657d6,2026-06-07,CORNER PHARMACY,-16.59,Credit Card,Healthcare,False,rule,
+be2465e8da,2026-06-08,PG ELECTRIC UTILITY,-122.05,Checking,Utilities,False,rule,
+2fa758ee86,2026-06-09,SUNNY TAQUERIA,-41.49,Credit Card,Dining,False,rule,
+7ee8fa0b69,2026-06-09,MUSIC PLUS,-10.99,Credit Card,Subscriptions,False,rule,
+58bb629cce,2026-06-10,CLOUD STORAGE 2TB,-2.99,Credit Card,Subscriptions,False,rule,
+f781ae31a3,2026-06-10,SUPERMARKET 88,-114.97,Credit Card,Groceries,False,rule,
+e42a3edadf,2026-06-10,HARDWARE DEPOT,-127.19,Credit Card,Shopping,False,rule,
+981e1f1232,2026-06-11,AIRLINE TICKET,-486.2,Credit Card,Travel,False,rule,
+a41af7bef7,2026-06-12,FIBER INTERNET CO,-70.0,Checking,Utilities,False,rule,
+e1bb86baf5,2026-06-12,ONLINE STORE ORDER,-111.41,Credit Card,Shopping,False,rule,
+2f57ebb18e,2026-06-13,ONLINE STORE ORDER,-28.78,Credit Card,Shopping,False,rule,
+57662dd1d5,2026-06-13,STUDENT LOAN SERVICER,-210.0,Checking,Debt payments,False,rule,
+f16e0ad03b,2026-06-14,RIDESHARE TRIP,-18.16,Credit Card,Transport,False,rule,
+6264f6c748,2026-06-14,MOBILE WIRELESS PLAN,-85.0,Checking,Utilities,False,rule,
+b9f071eb05,2026-06-15,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Checking,Salary,False,rule,
+dc603a2baa,2026-06-17,SUPERMARKET 88,-138.02,Credit Card,Groceries,False,rule,
+c0b24cd93b,2026-06-18,CITY WATER DEPT,-75.86,Checking,Utilities,False,rule,
+b51d36c7b8,2026-06-19,HOTEL STAY,-412.75,Credit Card,Travel,False,rule,
+398f7e0870,2026-06-20,PIZZA PLACE,-74.04,Credit Card,Dining,False,rule,
+7b18b5bc14,2026-06-20,PAYROLL CONTOSO HEALTH DIRECT DEP,650.0,Checking,Salary,False,rule,
+e9a08e2251,2026-06-21,COFFEE BAR,-15.32,Credit Card,Dining,False,rule,
+56357ccdce,2026-06-21,THAI RESTAURANT,-71.45,Credit Card,Dining,False,rule,
+3f7afb0cc1,2026-06-21,THAI RESTAURANT,-47.4,Credit Card,Dining,False,rule,
+125c44eab3,2026-06-21,SHELL FUEL,-57.68,Credit Card,Transport,False,rule,
+a6947a22c1,2026-06-22,PAYMENT THANK YOU,1642.73,Credit Card,Credit card payment,False,rule,
+55aa004476,2026-06-22,CREDIT CARD PAYMENT,-1642.73,Checking,Credit card payment,False,rule,
+0de3eeb483,2026-06-24,FRESH MARKET #142,-141.92,Credit Card,Groceries,False,rule,
+040dbb5191,2026-06-25,DEPARTMENT STORE,-71.58,Credit Card,Shopping,False,rule,
+c400fef2ba,2026-06-28,INTEREST EARNED,41.4,Savings,Interest,False,rule,
+b80e745318,2026-06-28,PIZZA PLACE,-9.58,Credit Card,Dining,False,rule,
+72d923b136,2026-07-01,LITTLE OAKS PRESCHOOL TUITION,-1350.0,Checking,Education,False,rule,
+1ce731c58d,2026-07-01,GYM MEMBERSHIP,-39.0,Credit Card,Subscriptions,False,rule,
+39a4f4083c,2026-07-01,RENT PAYMENT - OAK APTS,-3100.0,Checking,Housing,False,rule,
+a3c11e61aa,2026-07-01,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Checking,Salary,False,rule,
+b21aa6e3bd,2026-07-01,CORNER PHARMACY,-36.08,Credit Card,Healthcare,False,rule,
+4c27adc272,2026-07-02,TRANSFER TO SAVINGS,-800.0,Checking,Transfer,False,rule,
+dfde89176e,2026-07-02,TRANSFER FROM CHECKING,800.0,Savings,Transfer,False,rule,
+37c54dd56d,2026-07-02,SHELL FUEL,-46.43,Credit Card,Transport,False,rule,
+a08f89593b,2026-07-03,SAMPLE AUTO INSURANCE,-128.4,Checking,Insurance,False,rule,
+1ef3f99ffe,2026-07-03,SUPERMARKET 88,-140.99,Credit Card,Groceries,False,rule,
+1eac09c513,2026-07-04,STREAMING VIDEO CO,-15.99,Credit Card,Subscriptions,False,rule,
+99b25375e2,2026-07-04,COFFEE BAR,-61.52,Credit Card,Dining,False,rule,
+99cd11e4ad,2026-07-05,PAYROLL CONTOSO HEALTH DIRECT DEP,650.0,Checking,Salary,False,rule,
+1728415efb,2026-07-06,CAR LOAN AUTOPAY SAMPLE CU,-365.0,Checking,Debt payments,False,rule,
+4c4329373d,2026-07-07,ONLINE STORE ORDER,-64.5,Credit Card,Shopping,False,rule,
+f94b8b503c,2026-07-08,PG ELECTRIC UTILITY,-109.13,Checking,Utilities,False,rule,
+b5c84fab61,2026-07-09,MUSIC PLUS,-10.99,Credit Card,Subscriptions,False,rule,
+186a2968e4,2026-07-10,SUNNY TAQUERIA,-50.07,Credit Card,Dining,False,rule,
+ad97392c1d,2026-07-10,CHARITY DONATION,-25.0,Credit Card,Gifts & donations,False,rule,
+d006c504fe,2026-07-10,CLOUD STORAGE 2TB,-2.99,Credit Card,Subscriptions,False,rule,
+17c2037fe7,2026-07-10,RIDESHARE TRIP,-24.72,Credit Card,Transport,False,rule,
+943c8a9da9,2026-07-10,SUPERMARKET 88,-131.66,Credit Card,Groceries,False,rule,
+d975215af9,2026-07-12,FIBER INTERNET CO,-70.0,Checking,Utilities,False,rule,
+7ff21ef4bc,2026-07-12,DEPARTMENT STORE,-109.78,Credit Card,Shopping,False,rule,
+daff1b76c7,2026-07-13,STUDENT LOAN SERVICER,-210.0,Checking,Debt payments,False,rule,
+d5d1443aa6,2026-07-14,THAI RESTAURANT,-17.68,Credit Card,Dining,False,rule,
+81b438d800,2026-07-14,MOBILE WIRELESS PLAN,-85.0,Checking,Utilities,False,rule,
+c064e8acb9,2026-07-15,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Checking,Salary,False,rule,
+e02b47f5f4,2026-07-16,ONLINE STORE ORDER,64.5,Credit Card,Shopping,False,rule,
+825c5a5fc1,2026-07-17,FRESH MARKET #142,-151.7,Credit Card,Groceries,False,rule,
+50246323e1,2026-07-20,PIZZA PLACE,-41.5,Credit Card,Dining,False,rule,
+57bd1cf6fe,2026-07-20,PAYROLL CONTOSO HEALTH DIRECT DEP,650.0,Checking,Salary,False,rule,
+f220f8127f,2026-07-21,THAI RESTAURANT,-42.3,Credit Card,Dining,False,rule,
+207a5cb6e3,2026-07-21,THAI RESTAURANT,-42.3,Credit Card,Dining,False,rule,
+29530bb119,2026-07-22,PAYMENT THANK YOU,2321.31,Credit Card,Credit card payment,False,rule,
+538bda4cdc,2026-07-22,SHELL FUEL,-47.39,Credit Card,Transport,False,rule,
+57765613eb,2026-07-22,CREDIT CARD PAYMENT,-2321.31,Checking,Credit card payment,False,rule,
+4896ec8deb,2026-07-23,CINEMA 12,-33.14,Credit Card,Entertainment,False,rule,
+b239beeeaf,2026-07-23,ONLINE STORE ORDER,-37.63,Credit Card,Shopping,False,rule,
+063f2fa51b,2026-07-24,THAI RESTAURANT,-45.45,Credit Card,Dining,False,rule,
+30046b6435,2026-07-24,THAI RESTAURANT,-42.3,Credit Card,Dining,False,rule,
+4faecb2d7c,2026-07-24,VALLEY GROCER,-152.97,Credit Card,Groceries,False,rule,
+22987ac0fa,2026-07-25,SHELL FUEL,-54.54,Credit Card,Transport,False,rule,
+2d4a754e2d,2026-07-28,ONLINE STORE ORDER,-26.17,Credit Card,Shopping,False,rule,
+7d9b136ecb,2026-07-28,INTEREST EARNED,43.1,Savings,Interest,False,rule,
+6c8df2a2cb,2026-08-01,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Checking,Salary,False,rule,
+07e6c0ff69,2026-08-01,GYM MEMBERSHIP,-39.0,Credit Card,Subscriptions,False,rule,
+f87472f7a2,2026-08-01,RENT PAYMENT - OAK APTS,-3100.0,Checking,Housing,False,rule,
+998fb85cee,2026-08-01,LITTLE OAKS PRESCHOOL TUITION,-1350.0,Checking,Education,False,rule,
+80c31299c8,2026-08-02,TRANSFER FROM CHECKING,800.0,Savings,Transfer,False,rule,
+c382f3614c,2026-08-02,TRANSFER TO SAVINGS,-800.0,Checking,Transfer,False,rule,
+b3b07de92d,2026-08-02,BLUE BOTTLE CAFE,-35.52,Credit Card,Dining,False,rule,
+efba20ce44,2026-08-03,SAMPLE AUTO INSURANCE,-128.4,Checking,Insurance,False,rule,
+e74a7d749b,2026-08-03,SUPERMARKET 88,-180.43,Credit Card,Groceries,False,rule,
+9cefa6f030,2026-08-04,STREAMING VIDEO CO,-15.99,Credit Card,Subscriptions,False,rule,
+3b3c83dd9f,2026-08-05,PAYROLL CONTOSO HEALTH DIRECT DEP,650.0,Checking,Salary,False,rule,
+1345621a57,2026-08-05,ONLINE STORE ORDER,-87.06,Credit Card,Shopping,False,rule,
+90014df85b,2026-08-06,CAR LOAN AUTOPAY SAMPLE CU,-365.0,Checking,Debt payments,False,rule,
+8806727730,2026-08-07,PIZZA PLACE,-10.79,Credit Card,Dining,False,rule,
+3f212f9808,2026-08-08,PG ELECTRIC UTILITY,-97.49,Checking,Utilities,False,rule,
+ad3c17fa6d,2026-08-09,DEPARTMENT STORE,-40.28,Credit Card,Shopping,False,rule,
+f9a0e1e6e6,2026-08-09,MUSIC PLUS,-10.99,Credit Card,Subscriptions,False,rule,
+12cd738f9f,2026-08-09,BOOKSTORE,-38.4,Credit Card,Education,False,rule,
+6e182d27bd,2026-08-10,CLOUD STORAGE 2TB,-2.99,Credit Card,Subscriptions,False,rule,
+cdb6336172,2026-08-10,VALLEY GROCER,-134.68,Credit Card,Groceries,False,rule,
+c546f9c368,2026-08-12,FIBER INTERNET CO,-70.0,Checking,Utilities,False,rule,
+16a2fbbf1f,2026-08-12,SUNNY TAQUERIA,-29.76,Credit Card,Dining,False,rule,
+fd9cc99abb,2026-08-13,COFFEE BAR,-21.96,Credit Card,Dining,False,rule,
+28babf4812,2026-08-13,PIZZA PLACE,-74.53,Credit Card,Dining,False,rule,
+b139e9b0ec,2026-08-13,STUDENT LOAN SERVICER,-210.0,Checking,Debt payments,False,rule,
+70b918fde6,2026-08-13,SHELL FUEL,-58.23,Credit Card,Transport,False,rule,
+f425cf82cc,2026-08-14,MOBILE WIRELESS PLAN,-85.0,Checking,Utilities,False,rule,
+c4a250cdc6,2026-08-15,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Checking,Salary,False,rule,
+d8c92cba93,2026-08-15,COFFEE BAR,-50.89,Credit Card,Dining,False,rule,
+d2e13f12b7,2026-08-15,RIDESHARE TRIP,-26.9,Credit Card,Transport,False,rule,
+a284415a52,2026-08-16,SHELL FUEL,-51.09,Credit Card,Transport,False,rule,
+8ccd940f6c,2026-08-17,FRESH MARKET #142,-167.8,Credit Card,Groceries,False,rule,
+84274274a0,2026-08-18,CITY WATER DEPT,-58.54,Checking,Utilities,False,rule,
+e72ebcbeb8,2026-08-20,COFFEE BAR,-54.89,Credit Card,Dining,False,rule,
+4479b0e39a,2026-08-20,PAYROLL CONTOSO HEALTH DIRECT DEP,650.0,Checking,Salary,False,rule,
+d2ffc89adb,2026-08-22,PAYMENT THANK YOU,1494.79,Credit Card,Credit card payment,False,rule,
+370ac5cb66,2026-08-22,CREDIT CARD PAYMENT,-1494.79,Checking,Credit card payment,False,rule,
+04ec0cd3e8,2026-08-22,CHARITY DONATION,-25.0,Credit Card,Gifts & donations,False,rule,
+e997893df5,2026-08-23,SHELL FUEL,-65.4,Credit Card,Transport,False,rule,
+322fb606b0,2026-08-23,DEPARTMENT STORE,-118.63,Credit Card,Shopping,False,rule,
+c939eee5de,2026-08-24,SUPERMARKET 88,-141.3,Credit Card,Groceries,False,rule,
+67db95ebaf,2026-08-24,CORNER PHARMACY,-18.97,Credit Card,Healthcare,False,rule,
+ea0b1c443c,2026-08-27,PIZZA PLACE,-28.09,Credit Card,Dining,False,rule,
+9f136b74f9,2026-08-28,INTEREST EARNED,44.8,Savings,Interest,False,rule,
+c87f20a19c,2026-09-01,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Checking,Salary,False,rule,
+46e791e246,2026-09-01,GYM MEMBERSHIP,-39.0,Credit Card,Subscriptions,False,rule,
+e2df128123,2026-09-01,LITTLE OAKS PRESCHOOL TUITION,-1350.0,Checking,Education,False,rule,
+95fe188c24,2026-09-01,RENT PAYMENT - OAK APTS,-3100.0,Checking,Housing,False,rule,
+256061909a,2026-09-02,TRANSFER FROM CHECKING,800.0,Savings,Transfer,False,rule,
+9160de4511,2026-09-02,TRANSFER TO SAVINGS,-800.0,Checking,Transfer,False,rule,
+b85057c491,2026-09-03,BLUE BOTTLE CAFE,-73.78,Credit Card,Dining,False,rule,
+4646e59897,2026-09-03,SAMPLE AUTO INSURANCE,-128.4,Checking,Insurance,False,rule,
+a1a6f5f1aa,2026-09-03,VALLEY GROCER,-124.72,Credit Card,Groceries,False,rule,
+58d44bb054,2026-09-04,STREAMING VIDEO CO,-15.99,Credit Card,Subscriptions,False,rule,
+907beb0e0c,2026-09-04,COFFEE BAR,-43.84,Credit Card,Dining,False,rule,
+f09c987bbe,2026-09-05,PAYROLL CONTOSO HEALTH DIRECT DEP,650.0,Checking,Salary,False,rule,
+07fc2a834c,2026-09-06,CAR LOAN AUTOPAY SAMPLE CU,-365.0,Checking,Debt payments,False,rule,
+f4fa9e560c,2026-09-06,CORNER PHARMACY,-29.28,Credit Card,Healthcare,False,rule,
+a637c8c473,2026-09-08,PG ELECTRIC UTILITY,-122.9,Checking,Utilities,False,rule,
+8040f267f5,2026-09-09,MUSIC PLUS,-10.99,Credit Card,Subscriptions,False,rule,
+ea8af4d1ba,2026-09-09,AUTO REPAIR SHOP - TRANSMISSION,-2480.0,Checking,Transport,False,rule,
+72b06f834d,2026-09-09,COFFEE BAR,-11.22,Credit Card,Dining,False,rule,
+f33ee43669,2026-09-10,CLOUD STORAGE 2TB,-2.99,Credit Card,Subscriptions,False,rule,
+fea80e1482,2026-09-10,VALLEY GROCER,-169.0,Credit Card,Groceries,False,rule,
+f9f8fabd30,2026-09-10,BLUE BOTTLE CAFE,-64.66,Credit Card,Dining,False,rule,
+8c59001385,2026-09-10,COFFEE BAR,-42.59,Credit Card,Dining,False,rule,
+c9341b91ab,2026-09-12,THAI RESTAURANT,-63.67,Credit Card,Dining,False,rule,
+36fb58b23f,2026-09-12,FIBER INTERNET CO,-70.0,Checking,Utilities,False,rule,
+f405af422f,2026-09-13,STUDENT LOAN SERVICER,-210.0,Checking,Debt payments,False,rule,
+5f3408aa4a,2026-09-14,MOBILE WIRELESS PLAN,-85.0,Checking,Utilities,False,rule,
+f6fc55d645,2026-09-15,RIDESHARE TRIP,-21.32,Credit Card,Transport,False,rule,
+f39009e2b4,2026-09-15,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Checking,Salary,False,rule,
+0f8f3ef90f,2026-09-17,URGENT CARE CLINIC,-640.0,Checking,Healthcare,False,rule,
+7d50924e69,2026-09-17,FRESH MARKET #142,-116.37,Credit Card,Groceries,False,rule,
+1fd4d596c3,2026-09-17,SHELL FUEL,-51.55,Credit Card,Transport,False,rule,
+a2ced31d99,2026-09-17,THAI RESTAURANT,-69.89,Credit Card,Dining,False,rule,
+9d18323ee5,2026-09-19,SHELL FUEL,-46.49,Credit Card,Transport,False,rule,
+98f6c886ef,2026-09-20,SHELL FUEL,-44.56,Credit Card,Transport,False,rule,
+5bc2c646cc,2026-09-20,THAI RESTAURANT,-33.81,Credit Card,Dining,False,rule,
+ae573ccec6,2026-09-20,PAYROLL CONTOSO HEALTH DIRECT DEP,650.0,Checking,Salary,False,rule,
+210b7d4399,2026-09-22,CREDIT CARD PAYMENT,-1529.58,Checking,Credit card payment,False,rule,
+7225c074aa,2026-09-22,PAYMENT THANK YOU,1529.58,Credit Card,Credit card payment,False,rule,
+013f7e5e6f,2026-09-22,CHARITY DONATION,-25.0,Credit Card,Gifts & donations,False,rule,
+610b815c79,2026-09-24,IRS TREAS 310 TAX REF,412.0,Checking,Other income,False,rule,
+4629c72697,2026-09-24,VALLEY GROCER,-133.84,Credit Card,Groceries,False,rule,
+2ba63029b6,2026-09-26,HARDWARE DEPOT,-79.6,Credit Card,Shopping,False,rule,
+08568cb1e5,2026-09-26,BABYSITTER VENMO,-180.0,Checking,Education,False,rule,
+99a004cd15,2026-09-27,DEPARTMENT STORE,-137.35,Credit Card,Shopping,False,rule,
+e44d023f58,2026-09-27,MONTHLY SERVICE FEE,-12.0,Checking,Fees,False,rule,
+c03fee1f66,2026-09-27,THAI RESTAURANT,-71.24,Credit Card,Dining,False,rule,
+43b6a7af96,2026-09-27,PIZZA PLACE,-12.73,Credit Card,Dining,False,rule,
+fbedf12b83,2026-09-28,CINEMA 12,-35.9,Credit Card,Entertainment,False,rule,
+52ac8aa49f,2026-09-28,INTEREST EARNED,46.5,Savings,Interest,False,rule,
+2028201849,2026-09-29,VENMO CASHOUT,85.0,Checking,Other income,True,rule,Friend paid back their share of dinner; not income
+9b63c40afb,2026-10-01,GYM MEMBERSHIP,-39.0,Credit Card,Subscriptions,False,rule,
+77627a5018,2026-10-01,RENT PAYMENT - OAK APTS,-3100.0,Checking,Housing,False,rule,
+3fd6e90dda,2026-10-01,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Checking,Salary,False,rule,
+63021235c2,2026-10-01,LITTLE OAKS PRESCHOOL TUITION,-1350.0,Checking,Education,False,rule,
+b753cf8fcf,2026-10-02,HARDWARE DEPOT,-99.83,Credit Card,Shopping,False,rule,
+f2b9988ad0,2026-10-02,TRANSFER TO SAVINGS,-800.0,Checking,Transfer,False,rule,
+abf7567a01,2026-10-02,TRANSFER FROM CHECKING,800.0,Savings,Transfer,False,rule,
+25ecc1e884,2026-10-03,SQ *FARMSTAND SUNNYVALE,-32.4,Credit Card,Uncategorized,False,rule,
+81b43f1e06,2026-10-03,SUPERMARKET 88,-133.47,Credit Card,Groceries,False,rule,
+f1629e2899,2026-10-03,SAMPLE AUTO INSURANCE,-128.4,Checking,Insurance,False,rule,
+3e0a8f06a9,2026-10-04,STREAMING VIDEO CO,-15.99,Credit Card,Subscriptions,False,rule,
+3e62da91b0,2026-10-05,PAYROLL CONTOSO HEALTH DIRECT DEP,650.0,Checking,Salary,False,rule,
+463965b638,2026-10-06,CAR LOAN AUTOPAY SAMPLE CU,-365.0,Checking,Debt payments,False,rule,
+c0601060c2,2026-10-06,POS PURCHASE 4821,-57.1,Checking,Uncategorized,False,rule,
+38d4370a51,2026-10-06,SHELL FUEL,-59.85,Credit Card,Transport,False,rule,
+58d6cb4210,2026-10-07,ZELLE TO J LEE,-150.0,Checking,Uncategorized,False,rule,Split of a group gift
+0f478d6f7e,2026-10-08,DEPARTMENT STORE,-82.65,Credit Card,Shopping,False,rule,
+eb0f33b843,2026-10-08,PG ELECTRIC UTILITY,-131.73,Checking,Utilities,False,rule,
+919b5757c5,2026-10-09,MUSIC PLUS,-10.99,Credit Card,Subscriptions,False,rule,
+d99a467942,2026-10-10,BABYSITTER VENMO,-180.0,Checking,Education,False,rule,
+6648257345,2026-10-10,VALLEY GROCER,-177.12,Credit Card,Groceries,False,rule,
+1b28ec3905,2026-10-10,CLOUD STORAGE 2TB,-2.99,Credit Card,Subscriptions,False,rule,
+f29371eaa9,2026-10-10,CORNER PHARMACY,-34.84,Credit Card,Healthcare,False,rule,
+b2249ee393,2026-10-12,SUNNY TAQUERIA,-50.47,Credit Card,Dining,False,rule,
+00d508ad42,2026-10-12,FIBER INTERNET CO,-70.0,Checking,Utilities,False,rule,
+9785dfdeb2,2026-10-13,STUDENT LOAN SERVICER,-210.0,Checking,Debt payments,False,rule,
+9c46aea037,2026-10-14,MOBILE WIRELESS PLAN,-85.0,Checking,Utilities,False,rule,
+65ecc6a038,2026-10-15,PAYROLL NORTHWIND LABS DIRECT DEP,3250.0,Checking,Salary,False,rule,
+bfeda3f10d,2026-10-15,SHELL FUEL,-48.92,Credit Card,Transport,False,rule,
+c225fa1531,2026-10-17,FRESH MARKET #142,-156.39,Credit Card,Groceries,False,rule,
+446b4d35e0,2026-10-18,CHARITY DONATION,-25.0,Credit Card,Gifts & donations,False,rule,
+c9971303d6,2026-10-18,CITY WATER DEPT,-61.24,Checking,Utilities,False,rule,
+1a8636aa38,2026-10-19,BLUE BOTTLE CAFE,-40.29,Credit Card,Dining,False,rule,
+5f2b9f5ff6,2026-10-19,PIZZA PLACE,-12.11,Credit Card,Dining,False,rule,
+50f07bf9b9,2026-10-19,HARDWARE DEPOT,-56.65,Credit Card,Shopping,False,rule,
